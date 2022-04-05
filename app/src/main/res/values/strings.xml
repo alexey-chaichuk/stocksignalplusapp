@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">testapp1</string>
+    <string name="stock_signal">Stock <b>signal</b></string>
+    <string name="welcome">Welcome,\ngo sign up!</string>
+</resources>
