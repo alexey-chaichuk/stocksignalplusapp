@@ -12,5 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>
