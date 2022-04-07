@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".StockListFragment"
+    tools:context=".MessagesListFragment"
     android:background="@color/black">
 
     <ImageButton
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="12dp"
-        android:text="@string/stock"
+        android:text="@string/messages"
         android:textStyle="bold"
         android:textSize="16sp"/>
 
@@ -38,7 +38,7 @@
         android:layout_marginEnd="7dp"/>
 
     <LinearLayout
-        android:id="@+id/stock_list_toolbar"
+        android:id="@+id/messages_list_toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageButton
-                android:id="@+id/stock_items_category_btn"
+                android:id="@+id/messages_items_category_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_category"/>
@@ -64,7 +64,7 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageButton
-                android:id="@+id/stock_items_story_btn"
+                android:id="@+id/messages_items_story_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_story"/>
@@ -75,7 +75,7 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageButton
-                android:id="@+id/stock_items_candle_btn"
+                android:id="@+id/messages_items_candle_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_candle"/>
@@ -86,10 +86,10 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageButton
-                android:id="@+id/stock_items_message_btn"
+                android:id="@+id/messages_items_message_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_message"/>
+                android:background="@drawable/ic_message_selected"/>
         </LinearLayout>
 
 
@@ -99,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/stock_list_toolbar"
+        app:layout_constraintBottom_toTopOf="@id/messages_list_toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="54dp">
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="20"
-            tools:listitem="@layout/view_holder_stock_item"/>
+            tools:listitem="@layout/view_holder_message_item"/>
 
     </ScrollView>
 
