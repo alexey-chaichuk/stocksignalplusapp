@@ -13,4 +13,5 @@
     <string name="welcome_sign_in">Welcome,\ngo sign in!</string>
     <string name="sign_in"><b>Sign in</b></string>
     <string name="new_user_sign_up"><font color='#80FFFFFF'>New user? - </font><font color='#FFFFFF'><b><u>Sign up</u></b></font></string>
+    <string name="stock">Stock</string>
 </resources>
