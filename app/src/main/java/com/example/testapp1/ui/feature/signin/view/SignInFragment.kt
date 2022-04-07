@@ -1,4 +1,4 @@
-package com.example.testapp1
+package com.example.testapp1.ui.feature.signin.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.example.testapp1.R
 
 class SignInFragment : Fragment() {
 

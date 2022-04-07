@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MessagesListFragment"
+    tools:context=".ui.feature.messages.view.MessagesListFragment"
     android:background="@color/black">
 
     <ImageButton
@@ -105,6 +105,7 @@
         android:layout_marginTop="54dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messages_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

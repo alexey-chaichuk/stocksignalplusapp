@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".StockListFragment"
+    tools:context=".ui.feature.stock.view.StockListFragment"
     android:background="@color/black">
 
     <ImageButton
+        android:id="@+id/stock_items_menu"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:background="@drawable/ic_menu"
@@ -91,8 +92,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_message"/>
         </LinearLayout>
-
-
     </LinearLayout>
 
     <ScrollView
@@ -105,13 +104,13 @@
         android:layout_marginTop="54dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stock_items_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="20"
+            tools:itemCount="3"
             tools:listitem="@layout/view_holder_stock_item"/>
 
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
