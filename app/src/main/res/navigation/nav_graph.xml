@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.testapp1.ui.feature.signin.view.SignInFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.signin.view.SignInFragment"
         android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.testapp1.ui.feature.signup.view.SignUpFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.signup.view.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/stockListFragment"
-        android:name="com.example.testapp1.ui.feature.stock.view.StockListFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.stock.view.StockListFragment"
         android:label="fragment_stock_list"
         tools:layout="@layout/fragment_stock_list" >
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/messagesListFragment"
-        android:name="com.example.testapp1.ui.feature.messages.view.MessagesListFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.messages.view.MessagesListFragment"
         android:label="fragment_messages_list"
         tools:layout="@layout/fragment_messages_list" >
         <action

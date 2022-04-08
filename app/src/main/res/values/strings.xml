@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">testapp1</string>
+    <string name="app_name">stocksignalplus</string>
     <string name="stock_signal">Stock <b>signal</b></string>
     <string name="welcome_sign_up">Welcome,\ngo sign up!</string>
     <string name="e_mail">E-mail</string>
@@ -15,4 +15,5 @@
     <string name="new_user_sign_up"><font color='#80FFFFFF'>New user? - </font><font color='#FFFFFF'><b><u>Sign up</u></b></font></string>
     <string name="stock">Stock</string>
     <string name="messages">Messages</string>
+    <string name="forgot_password"><b><u>Forgot password</u></b></string>
 </resources>
