@@ -1,13 +1,5 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="26dp"
-    android:height="26dp"
-    android:viewportWidth="26"
-    android:viewportHeight="26">
-  <path
-      android:pathData="M9.2083,20.5833H8.6666C4.3333,20.5833 2.1666,19.5 2.1666,14.0833V8.6667C2.1666,4.3333 4.3333,2.1667 8.6666,2.1667H17.3333C21.6666,2.1667 23.8333,4.3333 23.8333,8.6667V14.0833C23.8333,18.4167 21.6666,20.5833 17.3333,20.5833H16.7916C16.4558,20.5833 16.1308,20.7458 15.925,21.0167L14.3,23.1833C13.585,24.1367 12.415,24.1367 11.7,23.1833L10.075,21.0167C9.9016,20.7783 9.5008,20.5833 9.2083,20.5833Z"
-      android:strokeLineJoin="round"
-      android:strokeWidth="2"
-      android:fillColor="#00000000"
-      android:strokeColor="#ffffff"
-      android:strokeLineCap="round"/>
-</vector>
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_message_selected" android:state_checked="true"/>
+    <item android:drawable="@drawable/ic_message_unselected" android:state_checked="false"/>
+</selector>

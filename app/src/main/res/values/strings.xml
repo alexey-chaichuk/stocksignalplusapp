@@ -16,4 +16,7 @@
     <string name="stock">Stock</string>
     <string name="messages">Messages</string>
     <string name="forgot_password"><b><u>Forgot password</u></b></string>
+    <string name="working">Working</string>
+    <string name="long_term">Long-term</string>
+    <string name="closed">Closed</string>
 </resources>

@@ -56,7 +56,7 @@
                 android:id="@+id/stock_items_category_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_category" />
+                android:background="@drawable/ic_category_unselected" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -67,7 +67,7 @@
                 android:id="@+id/stock_items_story_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_story" />
+                android:background="@drawable/ic_story_unselected" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -78,7 +78,7 @@
                 android:id="@+id/stock_items_candle_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_candle" />
+                android:background="@drawable/ic_candle_unselected" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -89,7 +89,7 @@
                 android:id="@+id/stock_items_message_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_message" />
+                android:background="@drawable/ic_message_unselected" />
         </LinearLayout>
     </LinearLayout>
 

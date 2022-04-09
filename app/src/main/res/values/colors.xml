@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="edittext_bg">#131313</color>
     <color name="stock_item_bg">#131313</color>
+    <color name="grey">#131313</color>
     <color name="edittext_active_frame">#86E2E8</color>
     <color name="button_bg">#86E2E8</color>
     <color name="hint_color">#4DFFFFFF</color>

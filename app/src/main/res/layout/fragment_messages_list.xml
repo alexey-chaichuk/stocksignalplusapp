@@ -57,7 +57,7 @@
                 android:id="@+id/messages_items_category_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_category" />
+                android:background="@drawable/ic_category_unselected" />
         </LinearLayout>
 
         <LinearLayout
@@ -70,7 +70,7 @@
                 android:id="@+id/messages_items_story_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_story" />
+                android:background="@drawable/ic_story_unselected" />
         </LinearLayout>
 
         <LinearLayout
@@ -83,7 +83,7 @@
                 android:id="@+id/messages_items_candle_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_candle" />
+                android:background="@drawable/ic_candle_unselected" />
         </LinearLayout>
 
         <LinearLayout
