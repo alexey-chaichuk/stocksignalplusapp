@@ -7,72 +7,11 @@
     tools:context="com.stocksignalplusapp.us.ui.feature.home.view.HomeFragment">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="54dp" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_cards_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="124dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
-    <ImageButton
-        android:id="@+id/home_menu_btn"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/ic_menu"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/stock_signal"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/home_search_btn"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="7dp"
-        android:background="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/home_disclaimer_btn"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/ic_disclaimer"
-        app:layout_constraintEnd_toStartOf="@id/home_search_btn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintGuide_begin="70dp" />
 
     <com.google.android.material.card.MaterialCardView
         style="@style/GreyCardViewStyle"
@@ -80,9 +19,9 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
         app:contentPadding="7dp"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="@id/guideline_top">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabLayout
             style="@style/Widget.MaterialComponents.TabLayout.Colored"
@@ -118,9 +57,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@id/home_bottom_navigation"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline_cards_top">
 
         <ScrollView
@@ -166,16 +105,5 @@
             </LinearLayout>
         </ScrollView>
     </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/home_bottom_navigation"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

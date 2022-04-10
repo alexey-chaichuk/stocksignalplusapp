@@ -25,18 +25,6 @@ class StockListFragment : Fragment(R.layout.fragment_stock_list) {
         binding.stockItemsRv.adapter = StockItemListAdapter()
         (binding.stockItemsRv.adapter as StockItemListAdapter).bindStockItems(StockItemsMock.getItems())
 
-        binding.stockItemsMessageBtn.setOnClickListener {
-            findNavController().navigate(
-                StockListFragmentDirections.actionStockListFragmentToMessagesListFragment()
-            )
-        }
-
-        binding.stockItemsMenu.setOnClickListener {
-            findNavController().navigate(
-                StockListFragmentDirections.actionStockListFragmentToSignUpFragment()
-            )
-        }
-
         viewModel.events.observe(viewLifecycleOwner, ::handleEvents)
     }
 

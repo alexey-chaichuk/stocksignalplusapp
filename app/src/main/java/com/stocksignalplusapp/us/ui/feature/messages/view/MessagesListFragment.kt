@@ -19,11 +19,5 @@ class MessagesListFragment : Fragment(R.layout.fragment_messages_list) {
         binding.messagesRv.adapter = MessagesListAdapter()
         (binding.messagesRv.adapter as MessagesListAdapter).bindMessages(MessagesMock.getItems())
 
-        binding.messagesItemsCategoryBtn.setOnClickListener {
-            findNavController().navigate(
-                MessagesListFragmentDirections.actionMessagesListFragmentToStockListFragment()
-            )
-        }
-
     }
 }
