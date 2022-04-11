@@ -10,28 +10,6 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.stocksignalplusapp.us.R
 
-class SignInFragment : Fragment() {
+class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val goToSignUp: TextView = view.findViewById(R.id.goto_signup)
-        goToSignUp.setOnClickListener {
-            findNavController().navigate(
-                SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
-        }
-
-        val backToSignUp: ImageView = view.findViewById(R.id.back_to_signup)
-        backToSignUp.setOnClickListener {
-            findNavController().navigate(
-                SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
-    }
 }
