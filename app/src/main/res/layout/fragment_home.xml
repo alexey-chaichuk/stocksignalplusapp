@@ -79,6 +79,12 @@
                     app:cardCornerRadius="20dp"
                     app:contentPadding="7dp">
 
+                    <androidx.fragment.app.FragmentContainerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="com.stocksignalplusapp.us.ui.feature.signals.view.SignalsFragment"
+                        android:id="@+id/home_signals_fragment"/>
+
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
@@ -90,6 +96,12 @@
                     app:cardCornerRadius="20dp"
                     app:contentPadding="7dp">
 
+                    <androidx.fragment.app.FragmentContainerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="com.stocksignalplusapp.us.ui.feature.stock.view.StockListFragment"
+                        android:id="@+id/home_stock_fragment"/>
+
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
@@ -100,6 +112,12 @@
                     android:layout_marginTop="12dp"
                     app:cardCornerRadius="20dp"
                     app:contentPadding="7dp">
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="com.stocksignalplusapp.us.ui.feature.messages.view.MessagesListFragment"
+                        android:id="@+id/home_messages_fragment"/>
 
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
