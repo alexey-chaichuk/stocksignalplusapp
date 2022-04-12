@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_stockListFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_stockListFragment_to_signalsFragment"
+            app:destination="@id/signalsFragment" />
     </fragment>
     <fragment
         android:id="@+id/messagesListFragment"
@@ -31,6 +34,9 @@
         <action
             android:id="@+id/action_messagesListFragment_to_homeFragment2"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messagesListFragment_to_signalsFragment"
+            app:destination="@id/signalsFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -43,5 +49,23 @@
         <action
             android:id="@+id/action_homeFragment_to_messagesListFragment"
             app:destination="@id/messagesListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_signalsFragment"
+            app:destination="@id/signalsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signalsFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.signals.view.SignalsFragment"
+        android:label="fragment_signals"
+        tools:layout="@layout/fragment_signals" >
+        <action
+            android:id="@+id/action_signalsFragment_to_messagesListFragment"
+            app:destination="@id/messagesListFragment" />
+        <action
+            android:id="@+id/action_signalsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_signalsFragment_to_stockListFragment"
+            app:destination="@id/stockListFragment" />
     </fragment>
 </navigation>
