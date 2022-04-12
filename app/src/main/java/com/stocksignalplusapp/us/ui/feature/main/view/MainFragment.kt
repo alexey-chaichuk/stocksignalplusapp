@@ -3,6 +3,7 @@ package com.stocksignalplusapp.us.ui.feature.main.view
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -12,7 +13,7 @@ import com.stocksignalplusapp.us.MenuDrawer
 import com.stocksignalplusapp.us.R
 import com.stocksignalplusapp.us.databinding.FragmentMainBinding
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class MainFragment : Fragment(R.layout.fragment_main), ToolbarHolder {
     private val binding by viewBinding(FragmentMainBinding::bind)
     private var menuDrawer : MenuDrawer? = null
 
@@ -50,4 +51,22 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             binding.fragmentMainNavHostContainer.findNavController()
         )
     }
+
+    override fun setCaption(caption: String) {
+        binding.fragmentMainCaption.text = caption
+    }
+
+    override fun hideDisclaimerIcon() {
+        binding.disclaimerBtn.isGone = true
+    }
+
+    override fun showDisclaimerIcon() {
+        binding.disclaimerBtn.isGone = false
+    }
+}
+
+interface ToolbarHolder {
+    fun setCaption(caption : String)
+    fun hideDisclaimerIcon()
+    fun showDisclaimerIcon()
 }

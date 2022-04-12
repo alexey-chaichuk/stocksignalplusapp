@@ -9,5 +9,30 @@
         android:id="@+id/mainFragment"
         tools:layout="@layout/fragment_main"
         android:name="com.stocksignalplusapp.us.ui.feature.main.view.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_disclaimerFragment"
+            app:destination="@id/disclaimerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/disclaimerFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.disclaimer.view.DisclaimerFragment"
+        android:label="fragment_disclaimer"
+        tools:layout="@layout/fragment_disclaimer" >
+        <action
+            android:id="@+id/action_disclaimerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.privacy_policy.view.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" >
+        <action
+            android:id="@+id/action_privacyPolicyFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

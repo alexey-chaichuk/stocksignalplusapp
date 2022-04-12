@@ -27,6 +27,7 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/header_navigation_drawer"
         app:itemTextColor="@color/white"
+        app:itemIconTint="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/main_menu" />
 
