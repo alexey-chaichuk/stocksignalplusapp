@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, Disc
             when(menuItem.itemId) {
                 R.id.privacy_policy -> binding.navHostFragmentContentMain.findNavController()
                     .navigate(MainFragmentDirections.actionMainFragmentToPrivacyPolicyFragment())
+                R.id.profile -> binding.navHostFragmentContentMain.findNavController()
+                    .navigate(MainFragmentDirections.actionMainFragmentToSignInFragment())
             }
             binding.drawerLayout.close()
             true
