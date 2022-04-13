@@ -114,6 +114,7 @@
                             layout="@layout/view_holder_stock_item"/>
 
                         <Button
+                            android:id="@+id/fragment_home_read_more_stocks"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:layout_marginStart="20dp"
@@ -157,6 +158,7 @@
                             layout="@layout/view_holder_message_item"/>
 
                         <Button
+                            android:id="@+id/fragment_home_read_more_messages"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:layout_marginStart="20dp"

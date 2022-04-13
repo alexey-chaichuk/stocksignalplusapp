@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.stocksignalplusapp.us.R
 import com.stocksignalplusapp.us.databinding.FragmentHomeBinding
@@ -35,6 +36,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         if(toolbar is ToolbarHolder) {
             toolbar.setCaption(getString(R.string.stock_signal))
             toolbar.showDisclaimerIcon()
+        }
+
+        binding.fragmentHomeReadMoreStocks.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToStockListFragment())
+        }
+
+        binding.fragmentHomeReadMoreMessages.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMessagesListFragment())
         }
 
         return super.onCreateView(inflater, container, savedInstanceState)
