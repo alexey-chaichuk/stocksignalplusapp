@@ -77,13 +77,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="163dp"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="7dp">
+                    app:contentPadding="0dp">
 
-                    <androidx.fragment.app.FragmentContainerView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:name="com.stocksignalplusapp.us.ui.feature.signals.view.SignalsFragment"
-                        android:id="@+id/home_signals_fragment"/>
+                    <include android:id="@+id/card1_1"
+                        layout="@layout/view_holder_signal_item"/>
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -94,13 +91,39 @@
                     android:layout_height="282dp"
                     android:layout_marginTop="12dp"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="7dp">
+                    app:contentPadding="0dp">
 
-                    <androidx.fragment.app.FragmentContainerView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:name="com.stocksignalplusapp.us.ui.feature.stock.view.StockListFragment"
-                        android:id="@+id/home_stock_fragment"/>
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Latest analysis"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="16dp"
+                            android:textSize="16sp"/>
+
+                        <include android:id="@+id/card2_1"
+                            layout="@layout/view_holder_stock_item"/>
+                        <include android:id="@+id/card2_2"
+                            layout="@layout/view_holder_stock_item"/>
+                        <include android:id="@+id/card2_3"
+                            layout="@layout/view_holder_stock_item"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/bg_black_rect"
+                            android:text="Read more"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:drawableEnd="@drawable/ic_chevron_right"/>
+
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -111,13 +134,39 @@
                     android:layout_height="282dp"
                     android:layout_marginTop="12dp"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="7dp">
+                    app:contentPadding="0dp">
 
-                    <androidx.fragment.app.FragmentContainerView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:name="com.stocksignalplusapp.us.ui.feature.messages.view.MessagesListFragment"
-                        android:id="@+id/home_messages_fragment"/>
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Latest signals"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="16dp"
+                            android:textSize="16sp"/>
+
+                        <include android:id="@+id/card3_1"
+                            layout="@layout/view_holder_message_item"/>
+                        <include android:id="@+id/card3_2"
+                            layout="@layout/view_holder_message_item"/>
+                        <include android:id="@+id/card3_3"
+                            layout="@layout/view_holder_message_item"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/bg_black_rect"
+                            android:text="Read more"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:drawableEnd="@drawable/ic_chevron_right"/>
+
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
