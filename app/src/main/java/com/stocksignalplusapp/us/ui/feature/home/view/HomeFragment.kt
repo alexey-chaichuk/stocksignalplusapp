@@ -38,14 +38,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             toolbar.showDisclaimerIcon()
         }
 
-        binding.fragmentHomeReadMoreStocks.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToStockListFragment())
-        }
-
-        binding.fragmentHomeReadMoreMessages.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMessagesListFragment())
-        }
-
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -81,6 +73,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.card33.messageItemCaption.text = "Pattern Notification"
         binding.card33.messageItemDescription.text = "AMC earnings release at 04:15 PM"
         binding.card33.messageItemDate.text = "22/12 20:36"
+
+
+        binding.fragmentHomeReadMoreStocks.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToStockListFragment())
+        }
+
+        binding.fragmentHomeReadMoreMessages.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMessagesListFragment())
+        }
     }
 
     private fun handleEvents(event: HomeScreenEvents) {
