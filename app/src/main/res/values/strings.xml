@@ -33,4 +33,5 @@ The most commonly used "email" disclaimer is a "breach of confidentiality" discl
     </string>
     <string name="disclaimer_caption">Disclaimer</string>
     <string name="privacy_policy_caption">Privacy Policy</string>
+    <string name="signal">signal</string>
 </resources>
