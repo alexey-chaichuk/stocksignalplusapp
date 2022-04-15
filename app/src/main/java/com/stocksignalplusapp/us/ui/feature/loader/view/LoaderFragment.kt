@@ -25,7 +25,7 @@ class LoaderFragment : Fragment(R.layout.fragment_loader) {
     override fun onResume() {
         super.onResume()
 
-        val timer = object: CountDownTimer(5000, 100) {
+        val timer = object: CountDownTimer(3000, 100) {
             override fun onTick(millisUntilFinished: Long) {
 
             }

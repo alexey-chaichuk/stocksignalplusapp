@@ -75,13 +75,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.card33.messageItemDate.text = "22/12 20:36"
 
 
-        binding.fragmentHomeReadMoreStocks.setOnClickListener {
+        /*binding.fragmentHomeReadMoreStocks.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToStockListFragment())
         }
 
         binding.fragmentHomeReadMoreMessages.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMessagesListFragment())
-        }
+        }*/
     }
 
     private fun handleEvents(event: HomeScreenEvents) {
