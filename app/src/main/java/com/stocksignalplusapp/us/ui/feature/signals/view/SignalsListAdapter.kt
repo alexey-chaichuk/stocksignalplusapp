@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.stocksignalplusapp.us.R
-import com.stocksignalplusapp.us.data.models.Message
-import com.stocksignalplusapp.us.data.models.Signal
+import com.stocksignalplusapp.us.domain.models.Signal
 
 class SignalsListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var signals = listOf<Signal>()

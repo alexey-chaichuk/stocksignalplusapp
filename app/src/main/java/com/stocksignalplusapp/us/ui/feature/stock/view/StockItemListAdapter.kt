@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.stocksignalplusapp.us.R
-import com.stocksignalplusapp.us.data.models.StockItem
+import com.stocksignalplusapp.us.domain.models.StockItem
 
 class StockItemListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var stockItems = listOf<StockItem>()

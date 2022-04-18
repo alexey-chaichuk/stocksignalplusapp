@@ -1,7 +1,7 @@
 package com.stocksignalplusapp.us.data.mock
 
 import com.stocksignalplusapp.us.R
-import com.stocksignalplusapp.us.data.models.StockItem
+import com.stocksignalplusapp.us.domain.models.StockItem
 
 object StockItemsMock {
     private val items = listOf(

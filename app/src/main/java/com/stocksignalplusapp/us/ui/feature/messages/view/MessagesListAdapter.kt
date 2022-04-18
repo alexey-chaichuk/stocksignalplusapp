@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.stocksignalplusapp.us.R
-import com.stocksignalplusapp.us.data.models.Message
+import com.stocksignalplusapp.us.domain.models.Message
 
 class MessagesListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var messages = listOf<Message>()
