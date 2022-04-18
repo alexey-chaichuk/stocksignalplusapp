@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1027629424863",
+    "project_id": "stocksignalplusapp",
+    "storage_bucket": "stocksignalplusapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027629424863:android:036210e28135fc53ddc96a",
+        "android_client_info": {
+          "package_name": "com.stocksignalplusapp.us"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027629424863-pdboaka590s934cr7okj4dmgmdomscj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA_4iKTGR7XiKX1uvcB5V2ghnQOihY9-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027629424863-pdboaka590s934cr7okj4dmgmdomscj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

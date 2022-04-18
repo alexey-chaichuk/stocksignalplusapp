@@ -1,21 +1,34 @@
 package com.stocksignalplusapp.us
 
-import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.util.AttributeSet
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import com.stocksignalplusapp.us.databinding.ActivityMainBinding
 import com.stocksignalplusapp.us.ui.feature.main.view.MainFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, DisclaimerHolder  {
 
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
     private val binding by viewBinding(ActivityMainBinding::bind)
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        firebaseAnalytics = Firebase.analytics
+
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
+            param(FirebaseAnalytics.Param.SCREEN_NAME, "home")
+            param(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity")
+        }
+    }
 
     override fun onResume() {
         super.onResume()
