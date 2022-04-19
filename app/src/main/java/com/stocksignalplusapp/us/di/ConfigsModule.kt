@@ -1,5 +1,6 @@
 package com.stocksignalplusapp.us.di
 
+import com.stocksignalplusapp.us.BuildConfig
 import com.stocksignalplusapp.us.core.FinnHubUrlProvider
 import dagger.Module
 import dagger.Provides
@@ -13,6 +14,6 @@ object ConfigsModule {
     @Provides
     fun provideFinnHubUrlProvider() : FinnHubUrlProvider = FinnHubUrlProvider(
         baseUrl = "https://finnhub.io/api/v1/",
-        apiKey = "sandbox_c9akqhqad3i8qngr435g"
+        apiKey = BuildConfig.FINNHUB_API_KEY,
     )
 }

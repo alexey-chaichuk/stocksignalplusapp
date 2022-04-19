@@ -37,6 +37,7 @@ class LoaderFragment : Fragment(R.layout.fragment_loader) {
     }
     private fun handleEvents(event: LoaderEvents) {
         when (event) {
+            LoaderEvents.Waiting -> {}
             LoaderEvents.GoToHomeScreen ->
                 findNavController()
                     .navigate(LoaderFragmentDirections.actionLoaderFragmentToMainFragment())
