@@ -10,12 +10,13 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import com.stocksignalplusapp.us.databinding.ActivityMainBinding
+import com.stocksignalplusapp.us.domain.models.StockItem
 import com.stocksignalplusapp.us.ui.feature.main.view.MainFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, DisclaimerHolder  {
+class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, TopFragmentHolder  {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     private val binding by viewBinding(ActivityMainBinding::bind)
@@ -59,6 +60,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, Disc
             .navigate(MainFragmentDirections.actionMainFragmentToDisclaimerFragment())
     }
 
+    override fun openAnalysis(stockItem: StockItem) {
+        binding.navHostFragmentContentMain.findNavController()
+            .navigate(MainFragmentDirections.actionMainFragmentToAnalysisFragment(stockItem))
+    }
+
 }
 
 interface MenuDrawer {
@@ -66,6 +72,7 @@ interface MenuDrawer {
     fun closeMenu()
 }
 
-interface DisclaimerHolder {
+interface TopFragmentHolder {
     fun openDisclaimer()
+    fun openAnalysis(stockItem: StockItem)
 }

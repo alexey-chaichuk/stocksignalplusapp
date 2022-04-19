@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AnalysisViewModel @Inject constructor(
-    finnHubRepository: FinnHubRepository
+    private val finnHubRepository: FinnHubRepository
 ) : ViewModel() {
     private val _events = MutableStateFlow<AnalysisEvent>(AnalysisEvent.Waiting)
     val events: LiveData<AnalysisEvent>

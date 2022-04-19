@@ -22,11 +22,30 @@
             android:padding="16dp">
 
             <ImageView
+                android:id="@+id/stock_item_image"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/tsla"/>
+                tools:src="@drawable/tsla"/>
+
+            <TextView
+                android:id="@+id/stock_item_ticker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="45dp"
+                tools:text="TICKER"/>
+
+            <TextView
+                android:id="@+id/stock_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="70dp"
+                tools:text="Name"/>
 
             <com.github.mikephil.charting.charts.LineChart
                 android:layout_height="200dp"
