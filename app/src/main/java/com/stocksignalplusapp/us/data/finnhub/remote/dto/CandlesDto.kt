@@ -4,16 +4,16 @@ import com.google.gson.annotations.SerializedName
 
 data class CandlesDto(
     @SerializedName("c")
-    val currentPrice: List<Double>,
+    val closePrice: List<Float>,
 
     @SerializedName("h")
-    val highPrice: List<Double>,
+    val highPrice: List<Float>,
 
     @SerializedName("l")
-    val lowPrice: List<Double>,
+    val lowPrice: List<Float>,
 
     @SerializedName("o")
-    val openPrice: List<Double>,
+    val openPrice: List<Float>,
 
     @SerializedName("s")
     val status: String,

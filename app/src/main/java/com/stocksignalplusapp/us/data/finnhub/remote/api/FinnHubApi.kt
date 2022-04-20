@@ -14,7 +14,7 @@ interface FinnHubApi {
 
     //Supported resolution includes 1, 5, 15, 30, 60, D, W, M
     //from and to - UNIX timestamps
-    @GET("candle")
+    @GET("stock/candle")
     suspend fun candles(
         @Query("symbol") symbol: String,
         @Query("resolution") resolution: String,

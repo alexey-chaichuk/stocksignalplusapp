@@ -17,7 +17,7 @@ class FinnHubHttpClientImpl @Inject constructor(
 ) : FinnHubHttpClient {
 
     private val client = OkHttpClient.Builder()
-        .addInterceptor(QueryInterceptor(hashMapOf("api_key" to finnHubUrlProvider.apiKey)))
+        .addInterceptor(QueryInterceptor(hashMapOf("token" to finnHubUrlProvider.apiKey)))
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 
