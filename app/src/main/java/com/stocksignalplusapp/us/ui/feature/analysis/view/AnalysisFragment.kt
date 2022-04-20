@@ -17,6 +17,7 @@ import com.stocksignalplusapp.us.ui.feature.analysis.viewmodel.AnalysisEvent
 import com.stocksignalplusapp.us.ui.feature.analysis.viewmodel.AnalysisViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import java.text.SimpleDateFormat
 
 
 @AndroidEntryPoint
@@ -36,7 +37,12 @@ class AnalysisFragment : Fragment(R.layout.fragment_analysis) {
         binding.stockItemName.text = stockItem.name
 
         viewModel.events.observe(viewLifecycleOwner, ::handleEvents)
-        viewModel.getCandles(stockItem)
+
+        val from = SimpleDateFormat("yyyy-MM-dd").parse("2022-03-20")?.time
+        val to = SimpleDateFormat("yyyy-MM-dd").parse("2022-04-20")?.time
+        if (to != null && from != null) {
+            viewModel.getCandles(stockItem, "D", from /1000, to /1000)
+        }
     }
 
     private fun handleEvents(event: AnalysisEvent) {
