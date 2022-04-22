@@ -6,7 +6,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
-    id 'com.google.gms.google-services'
+    //id 'com.google.gms.google-services'
 }
 apply plugin: 'kotlin-android'
 
@@ -24,6 +24,14 @@ android {
 
         buildConfigField "String", "APP_METRICA_API_KEY", APP_METRICA_API_KEY_PROPERTY
         buildConfigField "String", "APP_METRICA_API_KEY_REPORTER", APP_METRICA_API_KEY_REPORTER_PROPERT
+
+        buildConfigField "String", "MY_FIREBASE_API_KEY", MY_FIREBASE_API_KEY_PROPERTY
+        buildConfigField "String", "MY_FIREBASE_APP_ID", MY_FIREBASE_APP_ID_PROPERTY
+        buildConfigField "String", "MY_FIREBASE_PROJECT_ID", MY_FIREBASE_PROJECT_ID_PROPERTY
+        buildConfigField "String", "MY_FIREBASE_STORAGE_BUCKET", MY_FIREBASE_STORAGE_BUCKET_PROPERTY
+
+        buildConfigField "String", "FIREBASE_API_KEY", FIREBASE_API_KEY_PROPERTY
+        buildConfigField "String", "FIREBASE_APP_ID", FIREBASE_APP_ID_PROPERTY
     }
 
     buildTypes {

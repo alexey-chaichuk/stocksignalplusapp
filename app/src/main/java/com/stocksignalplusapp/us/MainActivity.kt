@@ -14,6 +14,7 @@ import com.stocksignalplusapp.us.domain.models.StockItem
 import com.stocksignalplusapp.us.ui.feature.main.view.MainFragmentDirections
 import com.yandex.metrica.YandexMetrica
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -29,12 +30,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, TopF
 
         val date = SimpleDateFormat("yyyy-M-d hh:mm:ss", Locale.getDefault()).format(Date())
 
+        Timber.d("sending event to Firebase")
         firebaseAnalytics = Firebase.analytics
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
             param(FirebaseAnalytics.Param.SCREEN_NAME, "home")
             param(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity")
         }
 
+        Timber.d("sending event to YandexMetric")
         YandexMetrica.reportEvent("Start date and time", date)
         YandexMetrica.reportAppOpen(this)
     }
