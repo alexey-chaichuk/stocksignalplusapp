@@ -29,13 +29,13 @@ class App: Application() {
         YandexMetrica.enableActivityAutoTracking(this)
         Timber.d("YandexMetric initialized")
 
-        val firebaseOptions = FirebaseOptions.Builder()
+        /*val firebaseOptions = FirebaseOptions.Builder()
             .setProjectId(BuildConfig.MY_FIREBASE_PROJECT_ID)
             .setStorageBucket(BuildConfig.MY_FIREBASE_STORAGE_BUCKET)
             .setApplicationId(BuildConfig.MY_FIREBASE_APP_ID)
             .setApiKey(BuildConfig.MY_FIREBASE_API_KEY)
             .build()
         FirebaseApp.initializeApp(this, firebaseOptions)
-        Timber.d("FirebaseApp initialized")
+        Timber.d("FirebaseApp initialized")*/
     }
 }
