@@ -23,6 +23,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "APP_METRICA_API_KEY", APP_METRICA_API_KEY_PROPERTY
+        buildConfigField "String", "APP_METRICA_API_KEY_REPORTER", APP_METRICA_API_KEY_REPORTER_PROPERT
     }
 
     buildTypes {

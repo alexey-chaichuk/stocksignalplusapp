@@ -12,7 +12,10 @@ import com.google.firebase.ktx.Firebase
 import com.stocksignalplusapp.us.databinding.ActivityMainBinding
 import com.stocksignalplusapp.us.domain.models.StockItem
 import com.stocksignalplusapp.us.ui.feature.main.view.MainFragmentDirections
+import com.yandex.metrica.YandexMetrica
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 @AndroidEntryPoint
@@ -23,12 +26,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, TopF
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        firebaseAnalytics = Firebase.analytics
 
+        val date = SimpleDateFormat("yyyy-M-d hh:mm:ss", Locale.getDefault()).format(Date())
+
+        firebaseAnalytics = Firebase.analytics
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
             param(FirebaseAnalytics.Param.SCREEN_NAME, "home")
             param(FirebaseAnalytics.Param.SCREEN_CLASS, "MainActivity")
         }
+
+        YandexMetrica.reportEvent("Start date and time", date)
+        YandexMetrica.reportAppOpen(this)
     }
 
     override fun onResume() {
