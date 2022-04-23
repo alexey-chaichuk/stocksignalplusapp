@@ -13,6 +13,10 @@
         <item name="cardBackgroundColor">@android:color/transparent</item>
     </style>
 
+    <style name="Paywall1CardViewStyle">
+        <item name="cardBackgroundColor">@color/paywall_bg1</item>
+    </style>
+
     <style name="NavigationDrawerStyle">
         <item name="android:textSize">15sp</item>
     </style>

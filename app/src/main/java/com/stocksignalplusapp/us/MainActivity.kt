@@ -76,6 +76,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, TopF
             .navigate(MainFragmentDirections.actionMainFragmentToAnalysisFragment(stockItem))
     }
 
+    override fun openPaywall() {
+        binding.navHostFragmentContentMain.findNavController()
+            .navigate(MainFragmentDirections.actionMainFragmentToPaywallFragment())
+    }
+
 }
 
 interface MenuDrawer {
@@ -86,4 +91,5 @@ interface MenuDrawer {
 interface TopFragmentHolder {
     fun openDisclaimer()
     fun openAnalysis(stockItem: StockItem)
+    fun openPaywall()
 }

@@ -15,4 +15,5 @@
     <color name="button_bg">#86E2E8</color>
     <color name="hint_color">#4DFFFFFF</color>
     <color name="green">#00FF4C</color>
+    <color name="paywall_bg1">#82E3A6</color>
 </resources>

@@ -34,4 +34,14 @@ The most commonly used "email" disclaimer is a "breach of confidentiality" discl
     <string name="disclaimer_caption">Disclaimer</string>
     <string name="privacy_policy_caption">Privacy Policy</string>
     <string name="signal">signal</string>
+    <string name="get_vip_access">Get VIP access</string>
+    <string name="profitable_70">Profitable 70%</string>
+    <string name="_1_week">1 week</string>
+    <string name="_4_99_billed_every_week">$4.99 Billed every week</string>
+    <string name="_1_month">1 month</string>
+    <string name="_24_99_billed_every_month">$24.99 Billed every month</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="secured_with_google_play_cancel_anytime">Secured with Google Play. Cancel anytime</string>
+    <string name="free_trial_text">Free trial period - 3 days. You will be charged after the end of the free trial. The subscription price is XXX $ per week. You can unsubscribe at any time.</string>
+    <string name="privacy_policy_subscribe_terms"><![CDATA[Privacy Policy & Terms of Service / Subscription Terms]]></string>
 </resources>
