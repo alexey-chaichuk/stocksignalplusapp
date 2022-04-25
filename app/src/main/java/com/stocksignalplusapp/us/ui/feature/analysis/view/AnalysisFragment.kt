@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.github.mikephil.charting.data.CandleData
-import com.github.mikephil.charting.data.CandleDataSet
-import com.github.mikephil.charting.data.CandleEntry
+import com.github.mikephil.charting.data.*
 import com.stocksignalplusapp.us.R
 import com.stocksignalplusapp.us.databinding.FragmentAnalysisBinding
 import com.stocksignalplusapp.us.ui.feature.analysis.viewmodel.AnalysisEvent
@@ -50,35 +48,30 @@ class AnalysisFragment : Fragment(R.layout.fragment_analysis) {
             is AnalysisEvent.Waiting -> {}
             is AnalysisEvent.GotCandles -> {
                 val candles = event.candles
-                val ceList = mutableListOf<CandleEntry>()
+                val eList = mutableListOf<Entry>()
                 with(candles) {
-                    val openCloseArray = openPrice zip closePrice
-                    val highLowArray = highPrice zip lowPrice
-                    val allCandlesArray = openCloseArray zip highLowArray
-                    var x: Float = 1.0f
-                    allCandlesArray.forEach { candle ->
-                        ceList.add(
-                            CandleEntry(
-                                x, candle.second.first, candle.second.second,
-                                candle.first.first, candle.first.second
+                    var x: Float = 1f
+                    closePrice.forEach { price ->
+                        eList.add(
+                            Entry(
+                                x, price
                             )
                         )
-                        x += 1.0f
+                        x += 1f
                     }
                 }
-                val cds = CandleDataSet(ceList, "Entries")
-                with(cds) {
-                    shadowWidth = 0.7f
-                    shadowColorSameAsCandle = true
-                    decreasingColor = Color.RED
-                    increasingColor = Color.GREEN
-                    decreasingPaintStyle = Paint.Style.FILL
-                    increasingPaintStyle = Paint.Style.FILL
+                val ds = LineDataSet(eList, "Close price")
+                with(ds) {
+                    setDrawIcons(false)
+                    color = Color.GREEN
+                    setDrawCircles(false)
+                    lineWidth = 2f
                 }
 
                 with(binding.analysisChart) {
                     legend.isEnabled = false
-                    data = CandleData(cds)
+                    data = LineData(ds)
+                    data.setDrawValues(false)
                     invalidate()
                 }
             }
