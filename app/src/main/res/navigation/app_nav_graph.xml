@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_mainFragment_to_paywallFragment"
             app:destination="@id/paywallFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/disclaimerFragment"
@@ -95,6 +98,15 @@
         tools:layout="@layout/fragment_paywall" >
         <action
             android:id="@+id/action_paywallFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.search.view.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

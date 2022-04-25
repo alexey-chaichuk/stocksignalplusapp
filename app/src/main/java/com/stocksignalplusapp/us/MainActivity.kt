@@ -81,6 +81,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, TopF
             .navigate(MainFragmentDirections.actionMainFragmentToPaywallFragment())
     }
 
+    override fun openSearch() {
+        binding.navHostFragmentContentMain.findNavController()
+            .navigate(MainFragmentDirections.actionMainFragmentToSearchFragment())
+    }
+
 }
 
 interface MenuDrawer {
@@ -92,4 +97,5 @@ interface TopFragmentHolder {
     fun openDisclaimer()
     fun openAnalysis(stockItem: StockItem)
     fun openPaywall()
+    fun openSearch()
 }

@@ -29,6 +29,10 @@ class MainFragment : Fragment(R.layout.fragment_main), ToolbarHolder {
             topFragmentHolder?.openDisclaimer()
         }
 
+        binding.searchBtn.setOnClickListener {
+            topFragmentHolder?.openSearch()
+        }
+
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
