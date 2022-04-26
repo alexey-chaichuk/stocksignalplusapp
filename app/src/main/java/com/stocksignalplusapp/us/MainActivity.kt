@@ -12,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 import com.stocksignalplusapp.us.databinding.ActivityMainBinding
 import com.stocksignalplusapp.us.domain.models.StockItem
 import com.stocksignalplusapp.us.ui.feature.main.view.MainFragmentDirections
+import com.stocksignalplusapp.us.ui.feature.search.view.SearchFragmentDirections
 import com.yandex.metrica.YandexMetrica
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -86,6 +87,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, TopF
             .navigate(MainFragmentDirections.actionMainFragmentToSearchFragment())
     }
 
+    override fun openSearchAnalysis(stockItem: StockItem) {
+        binding.navHostFragmentContentMain.findNavController()
+            .navigate(SearchFragmentDirections.actionSearchFragmentToAnalysisFragment(stockItem))
+    }
 }
 
 interface MenuDrawer {
@@ -98,4 +103,6 @@ interface TopFragmentHolder {
     fun openAnalysis(stockItem: StockItem)
     fun openPaywall()
     fun openSearch()
+    fun openSearchAnalysis(stockItem: StockItem)
+
 }
