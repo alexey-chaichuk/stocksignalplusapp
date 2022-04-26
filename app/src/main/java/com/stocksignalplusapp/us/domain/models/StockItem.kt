@@ -7,5 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class StockItem(
     val name: String,
     val ticker: String,
-    val stockImage: Int
+    val stockImage: Int? = null,
+    val stockImageUrl: String? = null,
 ): Parcelable

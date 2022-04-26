@@ -57,7 +57,7 @@ private class SearchDataViewHolder(itemView: View) : RecyclerView.ViewHolder(ite
 
     fun onBind(stockItem: StockItem) {
 
-        stockImage.load(stockItem.stockImage)
+        stockItem.stockImage?.let { stockImage.load(it) }
         name.text = stockItem.name
         ticker.text = stockItem.ticker
     }

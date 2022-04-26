@@ -21,6 +21,7 @@ import com.stocksignalplusapp.us.util.toGone
 import com.stocksignalplusapp.us.util.toVisible
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import kotlin.math.truncate
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
@@ -36,8 +37,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         binding.searchResultsRv.adapter = SearchResultsListAdapter(topFragmentHolder)
 
-        binding.searchEditText.afterTextChanged(viewModel::onNewQuery)
-        binding.searchEditText.requestFocus()
+        with (binding.searchEditText) {
+            afterTextChanged(viewModel::onNewQuery)
+            showSoftInputOnFocus = true
+            binding.searchEditText.requestFocus()
+        }
 
         viewModel.events.observe(viewLifecycleOwner, ::handleEvents)
     }
@@ -64,7 +68,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                     binding.searchPlaceholder.toGone()
                     val stockItems = mutableListOf<StockItem>()
                     for (symbol in symbols) {
-                        stockItems.add(StockItem(symbol.description, symbol.symbol, R.drawable.aapl))
+                        stockItems.add(StockItem(symbol.description, symbol.displaySymbol,
+                            R.drawable.tsla, null))
                     }
                     (binding.searchResultsRv.adapter as SearchResultsListAdapter).bindStockItems(stockItems)
                     binding.searchResultsRv.toVisible()

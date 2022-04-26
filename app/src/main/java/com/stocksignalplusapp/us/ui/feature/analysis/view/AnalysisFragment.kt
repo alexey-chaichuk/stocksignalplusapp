@@ -30,7 +30,7 @@ class AnalysisFragment : Fragment(R.layout.fragment_analysis) {
         val stockItem = args.stockItem
         Timber.d(stockItem.toString())
 
-        binding.stockItemImage.setImageResource(stockItem.stockImage)
+        stockItem.stockImage?.let { binding.stockItemImage.setImageResource(it) }
         binding.stockItemTicker.text = stockItem.ticker
         binding.stockItemName.text = stockItem.name
 

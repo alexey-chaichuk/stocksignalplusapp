@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
+import java.util.*
+import kotlin.concurrent.timerTask
 
 val Int.toDp: Int
     get() = (this / Resources.getSystem().displayMetrics.density).toInt()
@@ -30,7 +32,16 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
         }
 
         override fun afterTextChanged(editable: Editable?) {
-            afterTextChanged.invoke(editable.toString())
+            Timer().cancel()
+            val sleep = when(editable?.length) {
+                1 -> 1000L
+                2,3 -> 700L
+                4,5 -> 500L
+                else -> 300L
+            }
+            Timer().schedule (timerTask {
+                afterTextChanged.invoke(editable.toString())
+            }, sleep)
         }
     })
 }
@@ -45,6 +56,11 @@ fun View.showSnackbar(
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(windowToken, 0)
+}
+
+fun View.showKeyboard() {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
 
 fun Activity.showSystemMessage(text: String, longDuration: Boolean = false) =
