@@ -2,26 +2,19 @@ package com.stocksignalplusapp.us.ui.feature.search.view
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.stocksignalplusapp.us.R
 import com.stocksignalplusapp.us.TopFragmentHolder
-import com.stocksignalplusapp.us.data.mock.StockItemsMock
 import com.stocksignalplusapp.us.databinding.FragmentSearchBinding
 import com.stocksignalplusapp.us.domain.models.StockItem
-import com.stocksignalplusapp.us.ui.feature.analysis.viewmodel.AnalysisEvent
 import com.stocksignalplusapp.us.ui.feature.search.viewmodel.SearchEvent
 import com.stocksignalplusapp.us.ui.feature.search.viewmodel.SearchViewModel
-import com.stocksignalplusapp.us.ui.feature.stock.view.StockItemListAdapter
-import com.stocksignalplusapp.us.util.afterTextChanged
-import com.stocksignalplusapp.us.util.exhaustive
-import com.stocksignalplusapp.us.util.toGone
-import com.stocksignalplusapp.us.util.toVisible
+import com.stocksignalplusapp.us.util.*
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-import kotlin.math.truncate
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
@@ -33,14 +26,24 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
 
         val activity = requireActivity()
-        if(activity is TopFragmentHolder) topFragmentHolder = activity
+        if (activity is TopFragmentHolder) topFragmentHolder = activity
 
-        binding.searchResultsRv.adapter = SearchResultsListAdapter(topFragmentHolder)
+        with(binding.searchResultsRv) {
+            adapter = SearchResultsListAdapter(topFragmentHolder)
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+                        recyclerView.hideKeyboard()
+                    }
+                }
+            })
+        }
 
-        with (binding.searchEditText) {
+        with(binding.searchEditText) {
             afterTextChanged(viewModel::onNewQuery)
-            showSoftInputOnFocus = true
             binding.searchEditText.requestFocus()
+            showKeyboard()
         }
 
         viewModel.events.observe(viewLifecycleOwner, ::handleEvents)
@@ -54,12 +57,19 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private fun handleEvents(event: SearchEvent) {
         when (event) {
             is SearchEvent.Waiting -> {}
+            is SearchEvent.Searching -> {
+                binding.searchResultsRv.toGone()
+                with(binding.searchPlaceholder) {
+                    text = "Searching..."
+                    toVisible()
+                }
+            }
             is SearchEvent.SuccessResult -> {
                 val symbols = event.stockItems
-                if(symbols.isEmpty()) {
+                if (symbols.isEmpty()) {
                     Timber.d("Received empty result")
                     binding.searchResultsRv.toGone()
-                    with (binding.searchPlaceholder) {
+                    with(binding.searchPlaceholder) {
                         text = "There are no results for your search"
                         toVisible()
                     }
@@ -68,16 +78,22 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                     binding.searchPlaceholder.toGone()
                     val stockItems = mutableListOf<StockItem>()
                     for (symbol in symbols) {
-                        stockItems.add(StockItem(symbol.description, symbol.displaySymbol,
-                            R.drawable.tsla, null))
+                        stockItems.add(
+                            StockItem(
+                                symbol.description, symbol.displaySymbol,
+                                R.drawable.tsla, null
+                            )
+                        )
                     }
-                    (binding.searchResultsRv.adapter as SearchResultsListAdapter).bindStockItems(stockItems)
+                    (binding.searchResultsRv.adapter as SearchResultsListAdapter).bindStockItems(
+                        stockItems
+                    )
                     binding.searchResultsRv.toVisible()
                 }
             }
             is SearchEvent.ErrorResult -> {
                 binding.searchResultsRv.toGone()
-                with (binding.searchPlaceholder) {
+                with(binding.searchPlaceholder) {
                     text = event.e.localizedMessage
                     toVisible()
                 }

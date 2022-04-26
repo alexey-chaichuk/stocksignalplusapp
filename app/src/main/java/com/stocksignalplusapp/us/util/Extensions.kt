@@ -23,6 +23,8 @@ val Int.toPx: Int
 
 fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {
+        var timer = Timer()
+
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             // do nothing
         }
@@ -32,14 +34,15 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
         }
 
         override fun afterTextChanged(editable: Editable?) {
-            Timer().cancel()
+            timer.cancel()
             val sleep = when(editable?.length) {
                 1 -> 1000L
                 2,3 -> 700L
                 4,5 -> 500L
                 else -> 300L
             }
-            Timer().schedule (timerTask {
+            timer = Timer()
+            timer.schedule (timerTask {
                 afterTextChanged.invoke(editable.toString())
             }, sleep)
         }
@@ -60,7 +63,7 @@ fun View.hideKeyboard() {
 
 fun View.showKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    imm.showSoftInput(this, 0)
 }
 
 fun Activity.showSystemMessage(text: String, longDuration: Boolean = false) =
