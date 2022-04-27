@@ -3,14 +3,20 @@ package com.stocksignalplusapp.us.ui.feature.stock.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.stocksignalplusapp.us.R
-import com.stocksignalplusapp.us.data.models.StockItem
+import com.stocksignalplusapp.us.TopFragmentHolder
+import com.stocksignalplusapp.us.domain.models.StockItem
+import timber.log.Timber
 
-class StockItemListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class StockItemListAdapter(
+    private val topFragmentHolder: TopFragmentHolder?
+): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     private var stockItems = listOf<StockItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -25,6 +31,12 @@ class StockItemListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when(holder){
             is StockDataViewHolder -> {
                 holder.onBind(stockItems[position])
+                val analysisBtn: ImageButton = holder.itemView.findViewById(R.id.stock_item_analysis)
+                analysisBtn.setOnClickListener {
+                    Timber.d("topFragmentHolder -> %s", topFragmentHolder)
+                    Timber.d("stockItem -> %s", stockItems[position].toString())
+                    topFragmentHolder?.openAnalysis(stockItems[position])
+                }
             }
         }
     }
@@ -44,7 +56,7 @@ private class StockDataViewHolder(itemView: View) : RecyclerView.ViewHolder(item
 
     fun onBind(stockItem: StockItem) {
 
-        stockImage.load(stockItem.stockImage)
+        stockItem.stockImage?.let { stockImage.load(it) }
         name.text = stockItem.name
         ticker.text = stockItem.ticker
     }

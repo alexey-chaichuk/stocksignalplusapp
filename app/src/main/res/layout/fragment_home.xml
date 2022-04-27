@@ -1,0 +1,178 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.stocksignalplusapp.us.ui.feature.home.view.HomeFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_cards_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="70dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/GreyCardViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:contentPadding="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabLayout
+            style="@style/Widget.MaterialComponents.TabLayout.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:background="@android:color/transparent"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabIndicatorHeight="0dp"
+            app:tabRippleColor="@null"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextAppearance="@style/TabLayoutTextStyle">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/working" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/long_term" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/closed" />
+
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/TransparentCardViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_cards_top">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card1"
+                    style="@style/GreyCardViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="163dp"
+                    app:cardCornerRadius="20dp"
+                    app:contentPadding="0dp">
+
+                    <include android:id="@+id/card1_1"
+                        layout="@layout/view_holder_signal_item"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card2"
+                    style="@style/GreyCardViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="282dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="20dp"
+                    app:contentPadding="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Latest analysis"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="16dp"
+                            android:textSize="16sp"/>
+
+                        <include android:id="@+id/card2_1"
+                            layout="@layout/view_holder_stock_item"/>
+                        <include android:id="@+id/card2_2"
+                            layout="@layout/view_holder_stock_item"/>
+                        <include android:id="@+id/card2_3"
+                            layout="@layout/view_holder_stock_item"/>
+
+                        <Button
+                            android:id="@+id/fragment_home_read_more_stocks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/bg_black_rect"
+                            android:text="Read more"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:drawableEnd="@drawable/ic_chevron_right"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3"
+                    style="@style/GreyCardViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="282dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="20dp"
+                    app:contentPadding="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Latest signals"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="16dp"
+                            android:textSize="16sp"/>
+
+                        <include android:id="@+id/card3_1"
+                            layout="@layout/view_holder_message_item"/>
+                        <include android:id="@+id/card3_2"
+                            layout="@layout/view_holder_message_item"/>
+                        <include android:id="@+id/card3_3"
+                            layout="@layout/view_holder_message_item"/>
+
+                        <Button
+                            android:id="@+id/fragment_home_read_more_messages"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/bg_black_rect"
+                            android:text="Read more"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:drawableEnd="@drawable/ic_chevron_right"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

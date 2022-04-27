@@ -16,4 +16,32 @@
     <string name="stock">Stock</string>
     <string name="messages">Messages</string>
     <string name="forgot_password"><b><u>Forgot password</u></b></string>
+    <string name="working">Working</string>
+    <string name="long_term">Long-term</string>
+    <string name="closed">Closed</string>
+    <string name="privacy_policy_text">Your <b>subscription</b> begins as soon as your initial payment is processed. Your subscription will automatically renew each month without notice until you cancel. You authorize us to store your payment method(s) and to automatically charge your payment method(s) every month until you cancel. We will automatically charge you the then-current rate for your plan, plus applicable taxes (such as VAT or GST if the rate does not include it), every month upon renewal until you cancel.
+        \n\nWe may change your plan’s rate each monthly renewal term, and we will notify you of any rate change with the option to cancel. If the applicable <b>VAT or GST</b> rate (or other included tax or duty) changes during your one-month term, we will accordingly adjust the tax-inclusive price for your plan on your next billing date.
+        \n\nIf your primary payment method fails, you authorize us to charge any other payment method in your account. If you have not provided us a backup payment method(s) and you fail to provide payment, or if all payment methods in your account fail, we may suspend your subscription. You can edit your payment information anytime in your Adobe Account page.
+        \n\nFor European Economic Area customers, your bank may require you to authenticate your initial purchase using a password, a one-time code sent to your mobile number, or biometric recognition. When you authenticate, you also authorize us to charge your payment method for your additional purchases without providing us further payment information or other instructions (i.e., we will initiate future payments independently). Such additional purchases may occur when we automatically charge your payment method in connection with a recurring subscription or when you add or change licenses or products.
+    </string>
+    <string name="disclaimer">While it hasn\'t been determined whether having an "email" disclaimer actually helps you avoid liability in a court of law, having the "email" disclaimer in place does come with some general benefits.
+        \nThese benefits include:
+        \nInforming the recipients of your email of confidentiality, potential computer viruses and more
+This disclaimer may also deter the recipients from trying to file a lawsuit against you for something covered by your disclaimer
+The most commonly used "email" disclaimer is a "breach of confidentiality" disclaimer.
+        \nThis "breach of confidentiality" disclaimer used in email informs the recipient of the email that the communication is of a confidential nature, and that the information within the email is meant solely for the person to whom the email is addressed.
+    </string>
+    <string name="disclaimer_caption">Disclaimer</string>
+    <string name="privacy_policy_caption">Privacy Policy</string>
+    <string name="signal">signal</string>
+    <string name="get_vip_access">Get VIP access</string>
+    <string name="profitable_70">Profitable 70%</string>
+    <string name="_1_week">1 week</string>
+    <string name="_4_99_billed_every_week">$4.99 Billed every week</string>
+    <string name="_1_month">1 month</string>
+    <string name="_24_99_billed_every_month">$24.99 Billed every month</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="secured_with_google_play_cancel_anytime">Secured with Google Play. Cancel anytime</string>
+    <string name="free_trial_text">Free trial period - 3 days. You will be charged after the end of the free trial. The subscription price is XXX $ per week. You can unsubscribe at any time.</string>
+    <string name="privacy_policy_subscribe_terms"><![CDATA[Privacy Policy & Terms of Service / Subscription Terms]]></string>
 </resources>

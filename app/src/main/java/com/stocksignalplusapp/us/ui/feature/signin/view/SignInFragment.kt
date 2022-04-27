@@ -1,37 +1,26 @@
 package com.stocksignalplusapp.us.ui.feature.signin.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.stocksignalplusapp.us.R
+import com.stocksignalplusapp.us.databinding.FragmentSignInBinding
 
-class SignInFragment : Fragment() {
+class SignInFragment : Fragment(R.layout.fragment_sign_in) {
+    private val binding by viewBinding(FragmentSignInBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val goToSignUp: TextView = view.findViewById(R.id.goto_signup)
-        goToSignUp.setOnClickListener {
-            findNavController().navigate(
-                SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
+
+        binding.fragmentSigninBackBtn.setOnClickListener {
+            findNavController().navigateUp()
         }
 
-        val backToSignUp: ImageView = view.findViewById(R.id.back_to_signup)
-        backToSignUp.setOnClickListener {
-            findNavController().navigate(
-                SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
+        binding.gotoSignup.setOnClickListener {
+            findNavController()
+                .navigate(SignInFragmentDirections.actionSignInFragmentToSignUpFragment())
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
     }
 }

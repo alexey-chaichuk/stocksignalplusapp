@@ -25,16 +25,22 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="16dp" />
 
-        <ImageView
-            android:id="@+id/back_to_signup"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:scaleX="2"
-            android:scaleY="2"
-            android:src="@drawable/ic_chevron_left"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="54dp" />
+
+        <ImageButton
+            android:id="@+id/fragment_signin_back_btn"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/ic_chevron_left"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_top"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

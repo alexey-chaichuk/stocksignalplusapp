@@ -3,36 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/stockListFragment">
+    app:startDestination="@id/homeFragment">
 
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.stocksignalplusapp.us.ui.feature.signin.view.SignInFragment"
-        android:label="SignInFragment" >
-        <action
-            android:id="@+id/action_signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.stocksignalplusapp.us.ui.feature.signup.view.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
-        <action
-            android:id="@+id/action_signUpFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
-    </fragment>
     <fragment
         android:id="@+id/stockListFragment"
         android:name="com.stocksignalplusapp.us.ui.feature.stock.view.StockListFragment"
         android:label="fragment_stock_list"
         tools:layout="@layout/fragment_stock_list" >
         <action
-            android:id="@+id/action_stockListFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-        <action
             android:id="@+id/action_stockListFragment_to_messagesListFragment"
             app:destination="@id/messagesListFragment" />
+        <action
+            android:id="@+id/action_stockListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_stockListFragment_to_signalsFragment"
+            app:destination="@id/signalsFragment" />
     </fragment>
     <fragment
         android:id="@+id/messagesListFragment"
@@ -41,6 +27,45 @@
         tools:layout="@layout/fragment_messages_list" >
         <action
             android:id="@+id/action_messagesListFragment_to_stockListFragment"
+            app:destination="@id/stockListFragment" />
+        <action
+            android:id="@+id/action_messagesListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messagesListFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messagesListFragment_to_signalsFragment"
+            app:destination="@id/signalsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.home.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_stockListFragment"
+            app:destination="@id/stockListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_messagesListFragment"
+            app:destination="@id/messagesListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_signalsFragment"
+            app:destination="@id/signalsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signalsFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.signals.view.SignalsFragment"
+        android:label="fragment_signals"
+        tools:layout="@layout/fragment_signals" >
+        <action
+            android:id="@+id/action_signalsFragment_to_messagesListFragment"
+            app:destination="@id/messagesListFragment" />
+        <action
+            android:id="@+id/action_signalsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_signalsFragment_to_stockListFragment"
             app:destination="@id/stockListFragment" />
     </fragment>
 </navigation>

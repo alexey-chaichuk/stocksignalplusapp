@@ -1,6 +1,6 @@
 package com.stocksignalplusapp.us.data.mock
 
-import com.stocksignalplusapp.us.data.models.Message
+import com.stocksignalplusapp.us.domain.models.Message
 
 object MessagesMock {
     private val items = listOf(

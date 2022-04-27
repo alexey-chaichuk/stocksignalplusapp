@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph.xml"
+    app:startDestination="@id/loaderFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        tools:layout="@layout/fragment_main"
+        android:name="com.stocksignalplusapp.us.ui.feature.main.view.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_disclaimerFragment"
+            app:destination="@id/disclaimerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_analysisFragment"
+            app:destination="@id/analysisFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_paywallFragment"
+            app:destination="@id/paywallFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/disclaimerFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.disclaimer.view.DisclaimerFragment"
+        android:label="fragment_disclaimer"
+        tools:layout="@layout/fragment_disclaimer" >
+        <action
+            android:id="@+id/action_disclaimerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.privacy_policy.view.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" >
+        <action
+            android:id="@+id/action_privacyPolicyFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.signin.view.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.signup.view.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loaderFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.loader.view.LoaderFragment"
+        android:label="fragment_loader"
+        tools:layout="@layout/fragment_loader" >
+        <action
+            android:id="@+id/action_loaderFragment_to_mainFragment"
+            app:popUpTo="@id/loaderFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/analysisFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.analysis.view.AnalysisFragment"
+        android:label="fragment_analysis"
+        tools:layout="@layout/fragment_analysis" >
+        <action
+            android:id="@+id/action_analysisFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="stockItem"
+            app:argType="com.stocksignalplusapp.us.domain.models.StockItem" />
+        <action
+            android:id="@+id/action_analysisFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paywallFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.paywall.view.PaywallFragment"
+        android:label="fragment_paywall"
+        tools:layout="@layout/fragment_paywall" >
+        <action
+            android:id="@+id/action_paywallFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.stocksignalplusapp.us.ui.feature.search.view.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_analysisFragment"
+            app:destination="@id/analysisFragment" />
+    </fragment>
+</navigation>
