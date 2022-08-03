@@ -1,6 +1,4 @@
-# stocksignalplus
+Simple stock application with data from FinnHub
 
-https://www.figma.com/file/wns8vpwT7K49q1oOJC7a6R
-
-![gif](./docs/video/stock.gif)
-![gif](./docs/video/search-stock.gif)
+<p><img src="./docs/video/stock.gif" align="left" height="480" width="270" ></p>
+<p><img src="./docs/video/search-stock.gif" align="left" height="480" width="270" ></p>
