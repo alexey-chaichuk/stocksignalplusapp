@@ -1,12 +1,12 @@
 package com.stocksignalplusapp.us.ui.feature.home.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.stocksignalplusapp.us.R
 import com.stocksignalplusapp.us.TopFragmentHolder
@@ -16,6 +16,7 @@ import com.stocksignalplusapp.us.ui.feature.home.viewmodel.HomeScreenEvents
 import com.stocksignalplusapp.us.ui.feature.home.viewmodel.HomeScreenViewModel
 import com.stocksignalplusapp.us.ui.feature.main.view.ToolbarHolder
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -23,6 +24,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: HomeScreenViewModel by viewModels()
     private var topFragmentHolder: TopFragmentHolder? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { uiState -> handleEvents(uiState) }
+            }
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +46,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val activity = requireActivity()
         if(activity is TopFragmentHolder) topFragmentHolder = activity
 
-        viewModel.events.observe(viewLifecycleOwner, ::handleEvents)
     }
 
     override fun onDestroyView() {
