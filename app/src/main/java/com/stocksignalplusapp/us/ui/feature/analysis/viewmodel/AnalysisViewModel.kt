@@ -2,8 +2,8 @@ package com.stocksignalplusapp.us.ui.feature.analysis.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.stocksignalplusapp.us.data.finnhub.FinnHubRepository
 import com.stocksignalplusapp.us.domain.models.StockItem
+import com.stocksignalplusapp.us.domain.repository.FinnHubRepository
 import com.stocksignalplusapp.us.util.doOnSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,8 +23,8 @@ class AnalysisViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 finnHubRepository.candles(stockItem.ticker, resolution, from, to)
-                    .doOnSuccess { candlesDto ->
-                        uiStateMutable.value = AnalysisEvent.GotCandles(candlesDto)
+                    .doOnSuccess { candles ->
+                        uiStateMutable.value = AnalysisEvent.GotCandles(candles)
                     }
             } catch (e: Exception) {
                 Timber.d("Error on getting candles: %s", e.localizedMessage)

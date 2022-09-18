@@ -1,8 +1,8 @@
 package com.stocksignalplusapp.us.ui.feature.analysis.viewmodel
 
-import com.stocksignalplusapp.us.data.finnhub.remote.dto.CandlesDto
+import com.stocksignalplusapp.us.domain.models.Candles
 
 sealed class AnalysisEvent {
     object Waiting : AnalysisEvent()
-    data class GotCandles(val candles: CandlesDto) : AnalysisEvent()
+    data class GotCandles(val candles: Candles) : AnalysisEvent()
 }

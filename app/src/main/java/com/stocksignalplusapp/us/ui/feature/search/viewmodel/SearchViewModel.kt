@@ -2,7 +2,7 @@ package com.stocksignalplusapp.us.ui.feature.search.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.stocksignalplusapp.us.data.finnhub.FinnHubRepository
+import com.stocksignalplusapp.us.domain.repository.FinnHubRepository
 import com.stocksignalplusapp.us.util.doOnSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException
