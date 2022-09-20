@@ -8,7 +8,6 @@ import com.stocksignalplusapp.us.util.Result
 import com.stocksignalplusapp.us.util.doOnError
 import com.stocksignalplusapp.us.util.runOperationCatching
 import timber.log.Timber
-import javax.inject.Inject
 
 interface FinnHubRemoteDataSource {
     suspend fun symbolLookup(query: String): Result<List<SymbolDto>, Throwable>
@@ -17,7 +16,7 @@ interface FinnHubRemoteDataSource {
             Result<Candles, Throwable>
 }
 
-class FinnHubRemoteDataSourceImpl @Inject constructor(
+class FinnHubRemoteDataSourceImpl (
     private val finnHubApi: FinnHubApi
 ) : FinnHubRemoteDataSource {
 

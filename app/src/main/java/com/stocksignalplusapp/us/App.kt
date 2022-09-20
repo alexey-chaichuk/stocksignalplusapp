@@ -1,22 +1,38 @@
 package com.stocksignalplusapp.us
 
-import android.R
 import android.app.Application
-import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseOptions
+import com.stocksignalplusapp.us.di.appModule
+import com.stocksignalplusapp.us.di.configsModule
+import com.stocksignalplusapp.us.di.finnHubModule
+import com.stocksignalplusapp.us.di.networkModule
 import com.yandex.metrica.ReporterConfig
 import com.yandex.metrica.YandexMetrica
 import com.yandex.metrica.YandexMetricaConfig
-import dagger.hilt.android.HiltAndroidApp
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import timber.log.Timber
 
 
-@HiltAndroidApp
 class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+
         Timber.plant(Timber.DebugTree())
+
+        startKoin {
+            androidContext(this@App)
+            androidLogger(level = Level.DEBUG)
+            modules(listOf(
+                appModule,
+                configsModule,
+                finnHubModule,
+                networkModule
+            ))
+        }
 
         val configYandexMetric = YandexMetricaConfig.newConfigBuilder(BuildConfig.APP_METRICA_API_KEY)
             .withLogs()

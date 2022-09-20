@@ -3,7 +3,6 @@ package com.stocksignalplusapp.us.ui.feature.home.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -15,14 +14,13 @@ import com.stocksignalplusapp.us.domain.models.StockItem
 import com.stocksignalplusapp.us.ui.feature.home.viewmodel.HomeScreenEvents
 import com.stocksignalplusapp.us.ui.feature.home.viewmodel.HomeScreenViewModel
 import com.stocksignalplusapp.us.ui.feature.main.view.ToolbarHolder
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
-    private val viewModel: HomeScreenViewModel by viewModels()
+    private val vm: HomeScreenViewModel by viewModel()
     private var topFragmentHolder: TopFragmentHolder? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect { uiState -> handleEvents(uiState) }
+                vm.uiState.collect { uiState -> handleEvents(uiState) }
             }
         }
     }

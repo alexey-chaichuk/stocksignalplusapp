@@ -6,14 +6,13 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Inject
 
 interface FinnHubHttpClient {
     val finnHubApi : FinnHubApi
 }
 
-class FinnHubHttpClientImpl @Inject constructor(
-    finnHubUrlProvider: FinnHubUrlProvider,
+class FinnHubHttpClientImpl (
+    val finnHubUrlProvider: FinnHubUrlProvider,
 ) : FinnHubHttpClient {
 
     private val client = OkHttpClient.Builder()

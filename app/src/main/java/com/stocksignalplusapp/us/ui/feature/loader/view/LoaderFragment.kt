@@ -3,7 +3,6 @@ package com.stocksignalplusapp.us.ui.feature.loader.view
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -14,17 +13,18 @@ import com.stocksignalplusapp.us.databinding.FragmentLoaderBinding
 import com.stocksignalplusapp.us.ui.feature.loader.viewmodel.LoaderEvents
 import com.stocksignalplusapp.us.ui.feature.loader.viewmodel.LoaderViewModel
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoaderFragment : Fragment(R.layout.fragment_loader) {
-    private val binding by viewBinding(FragmentLoaderBinding::bind)
-    private val viewModel: LoaderViewModel by viewModels()
+    //private val binding by viewBinding(FragmentLoaderBinding::bind)
+    private val vm: LoaderViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect { uiState -> handleEvents(uiState) }
+                vm.uiState.collect { uiState -> handleEvents(uiState) }
             }
         }
     }
@@ -37,7 +37,7 @@ class LoaderFragment : Fragment(R.layout.fragment_loader) {
 
             }
             override fun onFinish() {
-                viewModel.onTimerFinish()
+                vm.onTimerFinish()
             }
         }
         timer.start()

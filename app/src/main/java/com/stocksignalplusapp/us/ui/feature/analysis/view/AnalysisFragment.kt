@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -17,16 +16,14 @@ import com.stocksignalplusapp.us.R
 import com.stocksignalplusapp.us.databinding.FragmentAnalysisBinding
 import com.stocksignalplusapp.us.ui.feature.analysis.viewmodel.AnalysisEvent
 import com.stocksignalplusapp.us.ui.feature.analysis.viewmodel.AnalysisViewModel
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 import java.text.SimpleDateFormat
 
-
-@AndroidEntryPoint
 class AnalysisFragment : Fragment(R.layout.fragment_analysis) {
     private val binding by viewBinding(FragmentAnalysisBinding::bind)
-    private val viewModel: AnalysisViewModel by viewModels()
+    private val vm: AnalysisViewModel by viewModel()
     private val args: AnalysisFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +31,7 @@ class AnalysisFragment : Fragment(R.layout.fragment_analysis) {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect { uiState -> handleEvents(uiState) }
+                vm.uiState.collect { uiState -> handleEvents(uiState) }
             }
         }
     }
@@ -52,7 +49,7 @@ class AnalysisFragment : Fragment(R.layout.fragment_analysis) {
         val from = SimpleDateFormat("yyyy-MM-dd").parse("2022-03-20")?.time
         val to = SimpleDateFormat("yyyy-MM-dd").parse("2022-04-20")?.time
         if (to != null && from != null) {
-            viewModel.getCandles(stockItem, "D", from /1000, to /1000)
+            vm.getCandles(stockItem, "D", from /1000, to /1000)
         }
     }
 
@@ -63,7 +60,7 @@ class AnalysisFragment : Fragment(R.layout.fragment_analysis) {
                 val candles = event.candles
                 val eList = mutableListOf<Entry>()
                 with(candles) {
-                    var x: Float = 1f
+                    var x = 1f
                     closePrice.forEach { price ->
                         eList.add(
                             Entry(

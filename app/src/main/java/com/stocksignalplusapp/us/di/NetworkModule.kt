@@ -2,30 +2,16 @@ package com.stocksignalplusapp.us.di
 
 import com.stocksignalplusapp.us.data.core.network.FinnHubHttpClient
 import com.stocksignalplusapp.us.data.core.network.FinnHubHttpClientImpl
-import com.stocksignalplusapp.us.data.finnhub.remote.api.FinnHubApi
-import dagger.Binds
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import org.koin.dsl.module
 
-@Module
-@InstallIn(SingletonComponent::class)
-interface NetworkModule {
+val networkModule = module {
 
-    @Binds
-    @Singleton
-    fun bindFinnHubClient(
-        impl: FinnHubHttpClientImpl,
-    ): FinnHubHttpClient
-}
+    single<FinnHubHttpClient> {
+        FinnHubHttpClientImpl(finnHubUrlProvider = get())
+    }
 
-@Module
-@InstallIn(SingletonComponent::class)
-object ApiWrapperModule {
+    single {
+        get<FinnHubHttpClient>().finnHubApi
+    }
 
-    @Provides
-    @Singleton
-    fun provideFinnHubApi(client: FinnHubHttpClient): FinnHubApi = client.finnHubApi
 }

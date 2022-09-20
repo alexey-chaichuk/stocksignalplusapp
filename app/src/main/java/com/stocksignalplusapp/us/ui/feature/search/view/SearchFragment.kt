@@ -3,7 +3,6 @@ package com.stocksignalplusapp.us.ui.feature.search.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -16,14 +15,13 @@ import com.stocksignalplusapp.us.domain.models.StockItem
 import com.stocksignalplusapp.us.ui.feature.search.viewmodel.SearchEvent
 import com.stocksignalplusapp.us.ui.feature.search.viewmodel.SearchViewModel
 import com.stocksignalplusapp.us.util.*
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
-@AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private val binding by viewBinding(FragmentSearchBinding::bind)
-    private val viewModel: SearchViewModel by viewModels()
+    private val vm: SearchViewModel by viewModel()
     private var topFragmentHolder: TopFragmentHolder? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +29,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect { uiState -> handleEvents(uiState) }
+                vm.uiState.collect { uiState -> handleEvents(uiState) }
             }
         }
     }
@@ -55,7 +53,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         }
 
         with(binding.searchEditText) {
-            afterTextChanged(viewModel::onNewQuery)
+            afterTextChanged(vm::onNewQuery)
             binding.searchEditText.requestFocus()
             showKeyboard()
         }

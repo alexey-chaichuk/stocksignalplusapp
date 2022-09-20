@@ -5,9 +5,8 @@ import com.stocksignalplusapp.us.data.finnhub.remote.dto.SymbolDto
 import com.stocksignalplusapp.us.domain.models.Candles
 import com.stocksignalplusapp.us.domain.repository.FinnHubRepository
 import com.stocksignalplusapp.us.util.Result
-import javax.inject.Inject
 
-class FinnHubRepositoryImpl @Inject constructor(
+class FinnHubRepositoryImpl (
     private val finnHubRemoteDataSource: FinnHubRemoteDataSource
 ) : FinnHubRepository {
 

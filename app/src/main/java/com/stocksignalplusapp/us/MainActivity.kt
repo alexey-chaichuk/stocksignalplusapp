@@ -14,13 +14,11 @@ import com.stocksignalplusapp.us.domain.models.StockItem
 import com.stocksignalplusapp.us.ui.feature.main.view.MainFragmentDirections
 import com.stocksignalplusapp.us.ui.feature.search.view.SearchFragmentDirections
 import com.yandex.metrica.YandexMetrica
-import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main), MenuDrawer, TopFragmentHolder  {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
